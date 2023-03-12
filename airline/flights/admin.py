@@ -8,13 +8,14 @@ from .models import Flight, Airport, Passenger
 
 @admin.register(Flight)
 class FlightAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'origin', 'destination', 'duration')
 
 
 @admin.register(Airport)
 class AirportAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Passenger)
 class PassengerAdmin(admin.ModelAdmin):
-    pass
+    filter_horizontal = ('flights',)
